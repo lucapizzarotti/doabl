@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Política de Privacidad · Doabl</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:       #0B0B0F;
+      --surface:  #111116;
+      --border:   #22222C;
+      --accent:   #F59E0B;
+      --text:     #EEEEF5;
+      --text-dim: #7A7A92;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', system-ui, sans-serif;
+      line-height: 1.65;
+      padding: 64px 24px;
+      -webkit-font-smoothing: antialiased;
+    }
+    main { max-width: 680px; margin: 0 auto; }
+    .brand {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 40px;
+    }
+    .brand .dot {
+      width: 22px; height: 22px; border-radius: 50%;
+      background: radial-gradient(circle at 50% 50%, #FFDA9B 0 30%, #FFA000 55%, #FF8400 100%);
+      box-shadow: 0 0 18px rgba(245,158,11,0.45);
+    }
+    .brand span { font-weight: 600; font-size: 20px; letter-spacing: -0.01em; }
+    h1 { font-size: 30px; font-weight: 600; letter-spacing: -0.02em; margin-bottom: 6px; }
+    .updated { color: var(--text-dim); font-size: 14px; margin-bottom: 40px; }
+    h2 { font-size: 18px; font-weight: 600; margin: 36px 0 12px; }
+    p { color: #C9C9D6; margin-bottom: 14px; }
+    ul { color: #C9C9D6; padding-left: 22px; margin-bottom: 14px; }
+    li { margin-bottom: 8px; }
+    strong { color: var(--text); font-weight: 600; }
+    code {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 5px; padding: 1px 6px; font-size: 0.9em;
+      font-family: ui-monospace, 'SF Mono', Menlo, monospace; color: var(--accent);
+    }
+    a { color: var(--accent); }
+    .divider { height: 1px; background: var(--border); margin: 40px 0; border: none; }
+    footer { color: var(--text-dim); font-size: 14px; }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="brand">
+      <span class="dot"></span>
+      <span>doabl</span>
+    </div>
+
+    <h1>Política de Privacidad</h1>
+    <p class="updated">Última actualización: 23 de junio de 2026</p>
+
+    <h2>Resumen</h2>
+    <p>Doabl <strong>no recopila, no almacena en servidores ni transmite datos personales</strong>. Todo lo que creás dentro de la extensión —tutoriales, pasos, títulos y su estado— se guarda únicamente en tu navegador, en tu dispositivo. No tenemos servidores propios, no usamos herramientas de analítica y no compartimos información con terceros.</p>
+
+    <h2>Qué datos se guardan y dónde</h2>
+    <ul>
+      <li>Los pasos que creás, los títulos de los tutoriales, los timestamps y el estado de cada paso (hecho / completado) se guardan <strong>localmente</strong> mediante la API <code>chrome.storage.local</code> de Chrome.</li>
+      <li>Esa información <strong>nunca sale de tu dispositivo</strong>: no se sincroniza, no se sube a ningún servidor y nosotros no tenemos acceso a ella.</li>
+      <li>Si desinstalás la extensión o borrás los datos de navegación de Chrome, esa información se elimina.</li>
+    </ul>
+
+    <h2>Permisos que usa la extensión y por qué</h2>
+    <ul>
+      <li><code>storage</code> — guardar tus pasos y tutoriales localmente en tu dispositivo.</li>
+      <li><code>sidePanel</code> — mostrar el panel de Doabl al costado del video de YouTube.</li>
+      <li><code>tabs</code> — leer la URL y el título del video de YouTube activo para asociar los pasos al video correcto, y activar o abrir la pestaña del video cuando tocás un paso.</li>
+      <li>Acceso a <code>youtube.com</code> — detectar el video en reproducción y leer su tiempo actual para capturar los timestamps. Solo se activa en youtube.com.</li>
+    </ul>
+
+    <h2>Conexiones externas</h2>
+    <p>La única conexión externa de Doabl es la carga de las <strong>miniaturas (thumbnails)</strong> de los videos, que se traen directamente desde los servidores de YouTube (<code>i.ytimg.com</code>). Esa solicitud la procesa YouTube/Google según su propia política de privacidad. Doabl no envía ningún otro dato a ningún servidor.</p>
+
+    <h2>Cambios en esta política</h2>
+    <p>Si esta política cambia, se actualizará esta misma página con una nueva fecha de "última actualización".</p>
+
+    <hr class="divider" />
+    <footer>Por cualquier consulta sobre privacidad: <a href="mailto:pizzarottil@gmail.com">pizzarottil@gmail.com</a></footer>
+  </main>
+</body>
+</html>
