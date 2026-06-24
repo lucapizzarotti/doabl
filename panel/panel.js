@@ -261,7 +261,7 @@ function renderHeader() {
     els.headerTitleText.textContent =
       viewing.title || (isLive() ? 'Cargando…' : (viewing.viewingVideoId || '—'));
     // Tooltip: full title (so truncated names are readable on hover).
-    els.headerTitleText.title = viewing.title || 'Renombrar';
+    els.headerTitleText.title = viewing.title || 'Rename';
   }
 }
 
@@ -282,8 +282,8 @@ function clearCompletedBadge() {
 function showCompletedBadge(completedAt) {
   if (!els.headerCompletedRow) return;
   const date = new Date(completedAt || Date.now());
-  const formatted = date.toLocaleDateString('es-AR', { day: 'numeric', month: 'long', year: 'numeric' });
-  els.headerCompletedRow.textContent = `✓ Completado el ${formatted}`;
+  const formatted = date.toLocaleDateString('en-US', { day: 'numeric', month: 'long', year: 'numeric' });
+  els.headerCompletedRow.textContent = `✓ Completed on ${formatted}`;
   els.headerCompletedRow.classList.remove('hidden');
 }
 
@@ -382,7 +382,7 @@ async function renderDetail() {
   els.activeVideoPill.classList.toggle('hidden', !showPill);
   if (showPill) {
     getVideoRecord(context.contextVideoId).then((rec) => {
-      els.pillTitle.textContent = rec?.title || 'otro video';
+      els.pillTitle.textContent = rec?.title || 'another video';
     });
   }
 
@@ -416,8 +416,8 @@ async function renderDetail() {
   const showNoSteps = viewing.steps.length === 0;
   els.emptyNoSteps.classList.toggle('hidden', !showNoSteps);
   els.emptyNoStepsDesc.textContent = live
-    ? 'Tocá "+ agregar paso" para capturar el primer momento del tutorial.'
-    : 'Este tutorial todavía no tiene pasos. Abrí el video para capturar.';
+    ? 'Tap "+ add step" to capture your first one.'
+    : 'This tutorial has no steps yet. Open the video to capture.';
 
   // Render steps.
   els.stepsList.innerHTML = '';
@@ -461,7 +461,7 @@ function buildStepEl(step) {
   checkEl.setAttribute('role', 'checkbox');
   checkEl.setAttribute('aria-checked', step.done ? 'true' : 'false');
   checkEl.setAttribute('tabindex', '0');
-  checkEl.setAttribute('aria-label', step.done ? 'Marcar como pendiente' : 'Marcar como hecho');
+  checkEl.setAttribute('aria-label', step.done ? 'Mark as pending' : 'Mark as done');
   checkEl.innerHTML = `
     <svg class="step-check-icon" width="9" height="9" viewBox="0 0 9 9" fill="none">
       <path d="M1.5 4.5L3.5 6.5L7.5 2.5" stroke="#0B0B0F" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
@@ -486,8 +486,8 @@ function buildStepEl(step) {
 
   const editBtn = document.createElement('button');
   editBtn.className = 'step-action-btn';
-  editBtn.title = 'Editar';
-  editBtn.setAttribute('aria-label', 'Editar paso');
+  editBtn.title = 'Edit';
+  editBtn.setAttribute('aria-label', 'Edit step');
   editBtn.innerHTML = `<svg width="12" height="12" viewBox="0 0 12 12" fill="none">
     <path d="M8.5 1.5L10.5 3.5L4 10H2V8L8.5 1.5Z" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
   </svg>`;
@@ -495,8 +495,8 @@ function buildStepEl(step) {
 
   const deleteBtn = document.createElement('button');
   deleteBtn.className = 'step-action-btn danger';
-  deleteBtn.title = 'Borrar';
-  deleteBtn.setAttribute('aria-label', 'Borrar paso');
+  deleteBtn.title = 'Delete';
+  deleteBtn.setAttribute('aria-label', 'Delete step');
   deleteBtn.innerHTML = `<svg width="12" height="12" viewBox="0 0 12 12" fill="none">
     <path d="M2 3H10M4 3V2H8V3M5 5.5V9M7 5.5V9M3 3L3.5 10H8.5L9 3" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
   </svg>`;
@@ -508,7 +508,7 @@ function buildStepEl(step) {
   // Click on body → seek to timestamp (live: direct; browsing: open video)
   body.style.cursor = 'pointer';
   body.addEventListener('click', () => handleSeek(step.timestamp));
-  body.title = isLive() ? `Saltar a ${formatTime(step.timestamp)}` : `Abrir el video en ${formatTime(step.timestamp)}`;
+  body.title = isLive() ? `Jump to ${formatTime(step.timestamp)}` : `Open the video at ${formatTime(step.timestamp)}`;
 
   item.appendChild(checkEl);
   item.appendChild(body);
@@ -540,7 +540,7 @@ async function renderLibrary() {
   els.homeVideoPill.classList.toggle('hidden', !showHomePill);
   if (showHomePill) {
     getTabTitle(context.activeTabId).then((t) => {
-      els.homePillTitle.textContent = t || 'Estás viendo un video ahora';
+      els.homePillTitle.textContent = t || "You're watching a video now";
     });
   }
 
@@ -559,7 +559,7 @@ async function renderLibrary() {
     const inProgressHeader = document.createElement('div');
     inProgressHeader.className = 'inprogress-section-header';
     inProgressHeader.innerHTML = `
-      <span class="inprogress-section-label">En curso</span>
+      <span class="inprogress-section-label">In progress</span>
       <span class="inprogress-section-count">${inProgress.length}</span>
     `;
     els.libraryList.appendChild(inProgressHeader);
@@ -579,7 +579,7 @@ async function renderLibrary() {
     sectionHeader.className = 'completed-section-header';
     sectionHeader.innerHTML = `
       <span class="completed-section-chevron${collapsed ? '' : ' open'}">▸</span>
-      <span class="completed-section-label">Completados</span>
+      <span class="completed-section-label">Completed</span>
       <span class="completed-section-count">${completed.length}</span>
     `;
 
@@ -610,7 +610,7 @@ function buildLibraryItemEl(video) {
   item.className = `library-item${isCompleted ? ' completed' : ''}`;
   item.setAttribute('role', 'listitem');
   item.setAttribute('tabindex', '0');
-  item.setAttribute('title', `Abrir checklist: ${video.title}`);
+  item.setAttribute('title', `Open checklist: ${video.title}`);
 
   const stepCount = video.steps.length;
   const doneCount = video.steps.filter((s) => s.done).length;
@@ -648,7 +648,7 @@ function buildLibraryItemEl(video) {
   bodyWrap.className = 'library-item-body';
   bodyWrap.innerHTML = `
     <div class="library-item-title">${escHtml(video.title)}</div>
-    <div class="library-item-meta">${doneCount}/${stepCount} paso${stepCount !== 1 ? 's' : ''}</div>
+    <div class="library-item-meta">${doneCount}/${stepCount} step${stepCount !== 1 ? 's' : ''}</div>
     <div class="library-item-progress">
       <div class="library-item-progress-fill" style="width:${pct}%"></div>
     </div>
@@ -657,8 +657,8 @@ function buildLibraryItemEl(video) {
   // Secondary action: go to the video.
   const goBtn = document.createElement('button');
   goBtn.className = 'library-item-go';
-  goBtn.title = 'Ir al video';
-  goBtn.setAttribute('aria-label', 'Ir al video');
+  goBtn.title = 'Go to video';
+  goBtn.setAttribute('aria-label', 'Go to video');
   goBtn.innerHTML = `<svg width="14" height="14" viewBox="0 0 14 14" fill="none">
     <path d="M5 3H11V9M11 3L3 11" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
   </svg>`;

@@ -2,8 +2,8 @@
   "manifest_version": 3,
   "name": "Doabl",
   "version": "0.1.0",
-  "description": "Convierte tutoriales de YouTube en listas de acciones.",
-  "permissions": ["sidePanel", "storage", "tabs"],
+  "description": "Turn YouTube tutorials into an actionable checklist, step by step.",
+  "permissions": ["sidePanel", "storage", "tabs", "scripting"],
   "host_permissions": ["*://www.youtube.com/*"],
   "background": {
     "service_worker": "service-worker.js"

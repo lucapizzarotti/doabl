@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Política de Privacidad · Doabl</title>
+  <title>Privacy Policy · Doabl</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -60,35 +60,36 @@
       <span>doabl</span>
     </div>
 
-    <h1>Política de Privacidad</h1>
-    <p class="updated">Última actualización: 23 de junio de 2026</p>
+    <h1>Privacy Policy</h1>
+    <p class="updated">Last updated: June 23, 2026</p>
 
-    <h2>Resumen</h2>
-    <p>Doabl <strong>no recopila, no almacena en servidores ni transmite datos personales</strong>. Todo lo que creás dentro de la extensión —tutoriales, pasos, títulos y su estado— se guarda únicamente en tu navegador, en tu dispositivo. No tenemos servidores propios, no usamos herramientas de analítica y no compartimos información con terceros.</p>
+    <h2>Summary</h2>
+    <p>Doabl <strong>does not collect, store on servers, or transmit any personal data</strong>. Everything you create inside the extension — tutorials, steps, titles and their state — is saved only in your browser, on your device. We have no servers of our own, we use no analytics tools, and we share no information with third parties.</p>
 
-    <h2>Qué datos se guardan y dónde</h2>
+    <h2>What data is stored and where</h2>
     <ul>
-      <li>Los pasos que creás, los títulos de los tutoriales, los timestamps y el estado de cada paso (hecho / completado) se guardan <strong>localmente</strong> mediante la API <code>chrome.storage.local</code> de Chrome.</li>
-      <li>Esa información <strong>nunca sale de tu dispositivo</strong>: no se sincroniza, no se sube a ningún servidor y nosotros no tenemos acceso a ella.</li>
-      <li>Si desinstalás la extensión o borrás los datos de navegación de Chrome, esa información se elimina.</li>
+      <li>The steps you create, tutorial titles, timestamps and the state of each step (done / completed) are saved <strong>locally</strong> through Chrome's <code>chrome.storage.local</code> API.</li>
+      <li>That information <strong>never leaves your device</strong>: it isn't synced, isn't uploaded to any server, and we have no access to it.</li>
+      <li>If you uninstall the extension or clear Chrome's browsing data, that information is deleted.</li>
     </ul>
 
-    <h2>Permisos que usa la extensión y por qué</h2>
+    <h2>Permissions the extension uses, and why</h2>
     <ul>
-      <li><code>storage</code> — guardar tus pasos y tutoriales localmente en tu dispositivo.</li>
-      <li><code>sidePanel</code> — mostrar el panel de Doabl al costado del video de YouTube.</li>
-      <li><code>tabs</code> — leer la URL y el título del video de YouTube activo para asociar los pasos al video correcto, y activar o abrir la pestaña del video cuando tocás un paso.</li>
-      <li>Acceso a <code>youtube.com</code> — detectar el video en reproducción y leer su tiempo actual para capturar los timestamps. Solo se activa en youtube.com.</li>
+      <li><code>storage</code> — save your steps and tutorials locally on your device.</li>
+      <li><code>sidePanel</code> — show the Doabl panel next to the YouTube video.</li>
+      <li><code>tabs</code> — read the URL and title of the active YouTube video to associate steps with the right video, and activate or open the video's tab when you tap a step.</li>
+      <li><code>scripting</code> — inject the capture bridge into YouTube tabs that were already open before the extension started, so capturing works without reloading the page.</li>
+      <li>Access to <code>youtube.com</code> — detect the playing video and read its current time to capture timestamps. Only active on youtube.com.</li>
     </ul>
 
-    <h2>Conexiones externas</h2>
-    <p>La única conexión externa de Doabl es la carga de las <strong>miniaturas (thumbnails)</strong> de los videos, que se traen directamente desde los servidores de YouTube (<code>i.ytimg.com</code>). Esa solicitud la procesa YouTube/Google según su propia política de privacidad. Doabl no envía ningún otro dato a ningún servidor.</p>
+    <h2>External connections</h2>
+    <p>Doabl's only external connection is loading video <strong>thumbnails</strong>, fetched directly from YouTube's servers (<code>i.ytimg.com</code>). That request is handled by YouTube/Google under their own privacy policy. Doabl sends no other data to any server.</p>
 
-    <h2>Cambios en esta política</h2>
-    <p>Si esta política cambia, se actualizará esta misma página con una nueva fecha de "última actualización".</p>
+    <h2>Changes to this policy</h2>
+    <p>If this policy changes, this page will be updated with a new "last updated" date.</p>
 
     <hr class="divider" />
-    <footer>Por cualquier consulta sobre privacidad: <a href="mailto:pizzarottil@gmail.com">pizzarottil@gmail.com</a></footer>
+    <footer>For any privacy questions: <a href="mailto:pizzarottil@gmail.com">pizzarottil@gmail.com</a></footer>
   </main>
 </body>
 </html>

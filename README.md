@@ -1,29 +1,29 @@
 # Doabl
 
-Convertí tutoriales de YouTube en una checklist de pasos accionables. Mirá y accioná al mismo tiempo, sin perder el hilo.
+Turn YouTube tutorials into an actionable checklist. Watch and do at the same time, without losing your flow.
 
-Doabl abre un panel al costado del video de YouTube donde transformás lo que mirás en una lista de **acciones concretas**, cada una anclada al segundo exacto del video. Pensada para builders —devs y diseñadores— que aprenden haciendo.
+Doabl opens a panel next to the YouTube video where you turn what you watch into a list of **concrete actions**, each one anchored to the exact second of the video. Built for builders — devs and designers — who learn by doing.
 
-## Cómo funciona
+## How it works
 
-- **Agregás un paso** con la acción que tenés que hacer. Doabl captura el timestamp automáticamente y pausa el video mientras escribís.
-- **Tocás un paso** y el video salta a ese segundo.
-- **Tachás** cada paso a medida que lo hacés. Al terminar, marcás el tutorial como completado.
-- Todo queda guardado **por video**, localmente en tu navegador.
+- **Add a step** with the action you need to take. Doabl captures the timestamp automatically and pauses the video while you type.
+- **Tap a step** and the video jumps to that second.
+- **Check off** each step as you go. When you're done, mark the tutorial as completed.
+- Everything is saved **per video**, locally in your browser.
 
-## Instalación (desarrollo)
+## Install (development)
 
-1. Cloná o descargá este repo.
-2. Andá a `chrome://extensions`.
-3. Activá el **Modo de desarrollador**.
-4. **Cargar descomprimida** → seleccioná la carpeta del proyecto.
+1. Clone or download this repo.
+2. Go to `chrome://extensions`.
+3. Enable **Developer mode**.
+4. **Load unpacked** → select the project folder.
 
-## Privacidad
+## Privacy
 
-Doabl es **100% local y gratis**. No recopila, no almacena en servidores ni transmite datos personales. Todo vive en tu navegador vía `chrome.storage.local`.
+Doabl is **100% local and free**. It doesn't collect, store on servers, or transmit any personal data. Everything lives in your browser via `chrome.storage.local`.
 
-→ [Política de privacidad](https://lucapizzarotti.github.io/doabl/privacy-policy.html)
+→ [Privacy policy](https://lucapizzarotti.github.io/doabl/privacy-policy.html)
 
 ## Stack
 
-Extensión de Chrome (Manifest V3) · Vanilla JS · Side Panel API · `chrome.storage.local`
+Chrome extension (Manifest V3) · Vanilla JS · Side Panel API · `chrome.storage.local`

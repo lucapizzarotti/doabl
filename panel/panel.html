@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,7 +12,7 @@
     <!-- ── Header ─────────────────────────────────────── -->
     <header class="header">
       <!-- Back to library (detail view only) -->
-      <button id="btn-back" class="btn-icon hidden" title="Volver a la lista" aria-label="Volver a la lista">
+      <button id="btn-back" class="btn-icon hidden" title="Back to library" aria-label="Back to library">
         <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
           <path d="M11 4L6 9L11 14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
@@ -26,7 +26,7 @@
       <!-- Editable video title (detail view) -->
       <div class="header-title hidden" id="header-title">
         <div class="header-title-row">
-          <span id="header-title-text" class="header-title-text" title="Renombrar" tabindex="0">—</span>
+          <span id="header-title-text" class="header-title-text" title="Rename" tabindex="0">—</span>
           <input
             type="text"
             id="header-title-input"
@@ -43,10 +43,10 @@
     <div id="view-detail" class="view">
 
       <!-- Pill: a different video is active in the current tab -->
-      <button id="active-video-pill" class="active-pill hidden" title="Abrir el detalle del video activo">
+      <button id="active-video-pill" class="active-pill hidden" title="Open the active video's checklist">
         <span class="pill-dot"></span>
-        <span class="pill-text">Estás viendo <span id="pill-title">otro video</span></span>
-        <span class="pill-cta">abrir →</span>
+        <span class="pill-text">You're watching <span id="pill-title">another video</span></span>
+        <span class="pill-cta">open →</span>
       </button>
 
       <!-- Steps list -->
@@ -57,50 +57,50 @@
       <!-- Empty state: no steps yet -->
       <div id="empty-no-steps" class="empty-state hidden">
         <div class="empty-icon">◎</div>
-        <p class="empty-title">Ningún paso aún</p>
-        <p class="empty-desc" id="empty-no-steps-desc">Tocá "+ agregar paso" para capturar el primer momento del tutorial.</p>
+        <p class="empty-title">No steps yet</p>
+        <p class="empty-desc" id="empty-no-steps-desc">Tap "+ add step" to capture your first one.</p>
       </div>
 
       <!-- Empty state: no video to show (fallback) -->
       <div id="empty-not-watch" class="empty-state hidden">
         <div class="empty-icon">▸</div>
-        <p class="empty-title">Abrí un tutorial de YouTube</p>
-        <p class="empty-desc">Doabl captura pasos de videos en youtube.com/watch.</p>
+        <p class="empty-title">Open a YouTube tutorial</p>
+        <p class="empty-desc">Doabl captures steps from videos on youtube.com/watch.</p>
       </div>
 
       <!-- Completion affordance: shown when all steps are done, not yet marked complete -->
       <div id="completion-affordance" class="completion-affordance hidden">
-        <span class="completion-affordance-text">Todo tachado. ¿Lo diste por terminado?</span>
-        <button id="btn-mark-complete" class="btn-mark-complete">Marcar completado</button>
+        <span class="completion-affordance-text">All checked off. Call it done?</span>
+        <button id="btn-mark-complete" class="btn-mark-complete">Mark complete</button>
       </div>
 
       <!-- Capture zone (only when live) -->
       <div id="capture-zone" class="capture-zone hidden">
         <button id="btn-add-step" class="btn-add">
-          <span>+</span> agregar paso
+          <span>+</span> add step
         </button>
 
         <!-- Shown during ads: read-only state -->
         <div id="capture-ad-state" class="capture-ad-state hidden">
           <span class="capture-ad-dot"></span>
-          <span>Anuncio en curso · podés capturar cuando termine</span>
+          <span>Ad playing · you can capture when it ends</span>
         </div>
 
         <div id="capture-mode" class="capture-input-area hidden">
           <div class="capture-indicator">
             <span class="capture-dot"></span>
-            capturando · <span id="capture-time-display" class="capture-time">0:00</span>
+            capturing · <span id="capture-time-display" class="capture-time">0:00</span>
           </div>
           <div class="capture-row">
             <input
               type="text"
               id="step-input"
               class="step-input"
-              placeholder="¿Qué hay que hacer acá?"
+              placeholder="What needs to be done here?"
               autocomplete="off"
               spellcheck="false"
             />
-            <button id="btn-save-step" class="btn-save" title="Guardar (Enter)" aria-label="Guardar paso">
+            <button id="btn-save-step" class="btn-save" title="Save (Enter)" aria-label="Save step">
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
                 <path d="M2 7L6 11L12 3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
@@ -115,14 +115,14 @@
     <div id="view-library" class="view hidden">
 
       <div class="library-header">
-        <span>Tutoriales</span>
+        <span>Tutorials</span>
       </div>
 
       <!-- Pill: active video not yet in the list -->
-      <button id="home-video-pill" class="active-pill home-pill hidden" title="Abrir el video activo">
+      <button id="home-video-pill" class="active-pill home-pill hidden" title="Open the active video">
         <span class="pill-dot"></span>
-        <span class="pill-text">En vivo · <span id="home-pill-title">Estás viendo un video ahora</span></span>
-        <span class="pill-cta">capturar →</span>
+        <span class="pill-text">Live · <span id="home-pill-title">You're watching a video now</span></span>
+        <span class="pill-cta">capture →</span>
       </button>
 
       <div id="library-list" class="library-list" role="list">
@@ -132,8 +132,8 @@
       <!-- Empty state: no videos yet -->
       <div id="empty-library" class="empty-state hidden">
         <div class="empty-icon">○</div>
-        <p class="empty-title">Biblioteca vacía</p>
-        <p class="empty-desc">Abrí un tutorial de YouTube y agregá tu primer paso para empezar.</p>
+        <p class="empty-title">Empty library</p>
+        <p class="empty-desc">Open a YouTube tutorial and add your first step to get started.</p>
       </div>
 
     </div><!-- /view-library -->

@@ -47,6 +47,22 @@ function notifyPanel(message) {
   chrome.runtime.sendMessage(message).catch(() => {});
 }
 
+// Send a message to a tab's content script. If the content script isn't there
+// yet (tab opened before the extension started, or the extension was reloaded),
+// inject it on demand and retry once.
+async function forwardToContent(tabId, payload) {
+  try {
+    return await chrome.tabs.sendMessage(tabId, payload);
+  } catch {
+    try {
+      await chrome.scripting.executeScript({ target: { tabId }, files: ['content-script.js'] });
+      return await chrome.tabs.sendMessage(tabId, payload);
+    } catch (err) {
+      return { error: err.message };
+    }
+  }
+}
+
 // ── Message hub ────────────────────────────────────────────────
 
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
@@ -71,13 +87,7 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 
     case 'FORWARD_TO_CONTENT': {
       const { tabId, payload } = message;
-      chrome.tabs.sendMessage(tabId, payload, (response) => {
-        if (chrome.runtime.lastError) {
-          sendResponse({ error: chrome.runtime.lastError.message });
-        } else {
-          sendResponse(response);
-        }
-      });
+      forwardToContent(tabId, payload).then(sendResponse);
       return true; // async
     }
 
